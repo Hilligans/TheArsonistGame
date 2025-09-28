@@ -35,9 +35,9 @@ public class Scene implements IRegistryElement {
         ArrayList<SceneSection> overlapping = new ArrayList<>();
 
         for(SceneSection section : sections) {
-            if(boundingBox.intersects(section.getBoundingBox())) {
+           // if(boundingBox.intersects(section.getBoundingBox())) {
                 overlapping.add(section);
-            }
+           // }
         }
 
         return overlapping;

@@ -8,6 +8,7 @@ import dev.hilligans.engine.client.graphics.resource.Image;
 import dev.hilligans.engine.client.graphics.resource.ImageInfo;
 import dev.hilligans.engine.data.BoundingBox;
 import dev.hilligans.engine.mod.handler.content.ModContainer;
+import dev.hilligans.engine.resource.ResourceLocation;
 import dev.hilligans.engine.util.registry.IRegistryElement;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -60,11 +61,14 @@ public class MapSection implements IGraphicsElement, IRegistryElement {
     @Override
     public void load(GameInstance gameInstance, IGraphicsEngine<?, ?, ?> graphicsEngine, GraphicsContext graphicsContext) {
         JSONObject jsonObject = gameInstance.getResource(dataPath, JSONObject.class);
+        System.err.println(gameInstance.RESOURCE_LOADER.getString(new ResourceLocation(dataPath)));
+        System.err.println(dataPath);
         JSONArray hitboxes = jsonObject.getJSONArray("hitboxes");
 
         this.boundingBoxes = new BoundingBox[hitboxes.length()];
         for(int x = 0; x < this.boundingBoxes.length; x++) {
             this.boundingBoxes[x] = new BoundingBox(hitboxes.getJSONObject(x));
+            System.err.println(this.boundingBoxes[x]);
         }
 
         Image image = gameInstance.getResource(jsonObject.getString("image_path"), Image.class);

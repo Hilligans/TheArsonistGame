@@ -63,6 +63,16 @@ public class PlayerEntity extends SpriteEntity {
         this.id = id;
     }
 
+    @Override
+    public IBoundingBox getEntityBoundingBox() {
+        return super.getEntityBoundingBox().shrunk(4, 4, 0);
+    }
+
+    @Override
+    public int getSpriteIndex() {
+        return 0;
+    }
+
     public boolean shouldFire() {
         return firing && !overheat;
     }

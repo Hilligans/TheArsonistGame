@@ -37,7 +37,7 @@ public class Engine2D implements ModClass {
     public void registerContent(ModContainer container) {
 
         if(container.getGameInstance().getSide().isClient()) {
-            container.register("engine2D:sprite", new AnimatedSprite("test_sprite", "Images/Items/stone_packed.png", "sprites/TestSprite.json"));
+            container.register("engine2D:sprite", new AnimatedSprite("test_sprite", "Images/adventurer_stand.png", "arsonist/sprites/PlayerSprite.json"));
             container.registerEntityType(new EntityType("entity_type", MOD_ID));
 
             container.registerRenderPipelines(new RenderPipeline("pipeline2d"));
@@ -55,8 +55,8 @@ public class Engine2D implements ModClass {
                     .afterTarget("border_blackout_renderer", "engine2D").setPipelineState(new PipelineState()));
 
 
-            container.register("engine2D:map_section", new MapSection("test_section", "sections/TestSection.json"));
-            container.register("engine2D:scene", new Scene("test_scene", "scenes/TestScene.json"));
+            container.register("engine2D:map_section", new MapSection("test_section", "sections/TestSection1.json"));
+            container.register("engine2D:scene", new Scene("test_scene", "scenes/TestScene1.json"));
 
 
             final int MOVE_SPEED = 64;

@@ -8,6 +8,8 @@ import dev.hilligans.engine.application.IClientApplication;
 import dev.hilligans.engine.client.graphics.RenderWindow;
 import dev.hilligans.engine.client.graphics.Screen;
 import dev.hilligans.engine.client.graphics.api.IGraphicsEngine;
+import dev.hilligans.engine.data.BoundingBox;
+import dev.hilligans.engine.data.IBoundingBox;
 import dev.hilligans.engine.entity.EntityType;
 import dev.hilligans.engine.network.Protocol;
 import dev.hilligans.engine.network.engine.INetworkEngine;
@@ -16,10 +18,13 @@ import dev.hilligans.engine.util.ThreadContext;
 import dev.hilligans.engine2d.client.Camera2D;
 import dev.hilligans.engine2d.client.sprite.Sprite;
 import dev.hilligans.engine2d.world.PlayerEntity;
+import dev.hilligans.engine2d.world.Scene;
 import dev.hilligans.engine2d.world.SpriteEntity;
 import dev.hilligans.engine2d.world.World2D;
 import org.joml.Vector3d;
 
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -41,6 +46,8 @@ public class Client2D implements IClientApplication {
     public Flame flame;
 
     public NetworkSocket<?> socket;
+
+    public boolean rendering = false;
 
     public World2D getWorld() {
         return world;
@@ -65,7 +72,36 @@ public class Client2D implements IClientApplication {
 
     public void respawn() {
         playerEntity.alive = true;
+        rendering = false;
         playerEntity.health = 100;
+
+        List<Scene.SceneSection> sectionList = world.getScene().getOverlappingSections(playerEntity.getEntityBoundingBox());
+        Random random = new Random();
+        out:
+        while(true) {
+            int x = random.nextInt(900) + 10;
+            int y = random.nextInt(500) + 10;
+
+            playerEntity.setPosition(x, y, 0);
+
+            IBoundingBox boundingBox = playerEntity.getEntityBoundingBox();
+            boolean valid = true;
+            label:
+            for(Scene.SceneSection section : sectionList) {
+                for(BoundingBox boundingBox1 : section.section().boundingBoxes) {
+                    if(boundingBox1.intersects(boundingBox)) {
+                        valid = false;
+                        break label;
+                    }
+                }
+            }
+
+            if(valid) {
+                break;
+            }
+        }
+
+        rendering = true;
 
         CUpdatePlayer.encode(world.networkEntity, playerEntity);
     }
@@ -154,10 +190,11 @@ public class Client2D implements IClientApplication {
 
         this.camera2D = (EntityCamera2D) getRenderWindow().getCamera();
         this.camera2D.entity = playerEntity;
+
         world.addEntity(playerEntity);
         flame = new Flame(gameInstance, playerEntity);
         world.addEntity(flame);
-
+        respawn();
     }
 
     public float getWorldMouseX() {

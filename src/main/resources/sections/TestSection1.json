@@ -1,0 +1,151 @@
+{
+  "image_path": "Images/Sample1.png",
+  "hitboxes": [
+    {
+      "minX": 477,
+      "minY": 60,
+      "maxX": 586,
+      "maxY": 170,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 229,
+      "minY": 402,
+      "maxX": 467,
+      "maxY": 422,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 413,
+      "minY": 145,
+      "maxX": 477,
+      "maxY": 164,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 478,
+      "minY": 60,
+      "maxX": 586,
+      "maxY": 170,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 46,
+      "minY": 256,
+      "maxX": 183,
+      "maxY": 275,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 46,
+      "minY": 256,
+      "maxX": 61,
+      "maxY": 350,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 184,
+      "minY": 245,
+      "maxX": 330,
+      "maxY": 353,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 514,
+      "minY": 310,
+      "maxX": 550,
+      "maxY": 351,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 148,
+      "minY": 0,
+      "maxX": 256,
+      "maxY": 132,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 256,
+      "minY": 24,
+      "maxX": 336,
+      "maxY": 132,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 660,
+      "minY": 244,
+      "maxX": 692,
+      "maxY": 427,
+      "minZ": -1,
+      "maxZ": 1
+    }
+  ,
+    {
+      "minX": 771,
+      "minY": 244,
+      "maxX": 808,
+      "maxY": 427,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 624,
+      "minY": 318,
+      "maxX": 844,
+      "maxY": 427,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": -10,
+      "minY": -1,
+      "maxX": -1,
+      "maxY": 516,
+      "minZ": -1,
+      "maxZ": 1
+    }
+  ,
+    {
+      "minX": -1,
+      "minY": -10,
+      "maxX": 916,
+      "maxY": -1,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 916,
+      "minY": -1,
+      "maxX": 930,
+      "maxY": 516,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": -1,
+      "minY": 516,
+      "maxX": 930,
+      "maxY": 530,
+      "minZ": -1,
+      "maxZ": 1
+    },
+    {
+      "minX": 660,
+      "minY": 98,
+      "maxX": 770,
+      "maxY": 206,
+      "minZ": -1,
+      "maxZ": 1
+    }
+  ]
+}
