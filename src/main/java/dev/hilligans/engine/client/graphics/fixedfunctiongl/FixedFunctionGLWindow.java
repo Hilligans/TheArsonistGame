@@ -1,0 +1,84 @@
+package dev.hilligans.engine.client.graphics.fixedfunctiongl;
+
+import dev.hilligans.engine.application.IClientApplication;
+import dev.hilligans.engine.client.graphics.RenderWindow;
+import dev.hilligans.engine.client.graphics.api.GraphicsContext;
+
+import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.system.MemoryUtil.NULL;
+
+public class FixedFunctionGLWindow extends RenderWindow {
+
+    public long window;
+    public boolean shouldClose = false;
+    public boolean mouseLocked = false;
+    public boolean windowFocused = true;
+    public int width;
+    public int height;
+
+    public FixedFunctionGLWindow(IClientApplication client, FixedFunctionGLEngine engine) {
+        super(engine);
+        this.camera = null;
+        window = glfwCreateWindow(1920,1080,"Ourcraft",NULL,NULL);
+        if(window == NULL) {
+
+            glfwTerminate();
+            throw new RuntimeException("Failed to create window");
+        }
+        glfwMakeContextCurrent(window);
+        this.client = client;
+    }
+
+    @Override
+    public long getWindowID() {
+        return window;
+    }
+
+    @Override
+    public void close() {
+        shouldClose = true;
+    }
+
+    @Override
+    public boolean shouldClose() {
+        return glfwWindowShouldClose(window) || shouldClose;
+    }
+
+    @Override
+    public void swapBuffers(GraphicsContext graphicsContext) {
+        glfwSwapBuffers(window);
+       // client.rendering = false;
+        glfwPollEvents();
+        tick();
+    }
+
+    @Override
+    public String getClipboardString() {
+        return null;
+    }
+
+    @Override
+    public void setMousePosition(int x, int y) {
+
+    }
+
+    @Override
+    public int getWindowWidth() {
+        return width;
+    }
+
+    @Override
+    public int getWindowHeight() {
+        return height;
+    }
+
+    @Override
+    public boolean isWindowFocused() {
+        return windowFocused;
+    }
+
+    @Override
+    public String getWindowingName() {
+        return "glfw";
+    }
+}

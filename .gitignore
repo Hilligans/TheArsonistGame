@@ -1,0 +1,13 @@
+ target/
+*.log
+*.dat
+world/
+screenshots/
+.idea/
+mods/
+lib/
+/lib/
+/target/
+/target/classes/
+/classes/
+/build/

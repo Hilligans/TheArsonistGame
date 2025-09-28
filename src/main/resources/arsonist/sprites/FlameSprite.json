@@ -1,0 +1,40 @@
+{
+  "frames" : [
+    {
+      "minX": 0,
+      "minY": 0,
+      "maxX": 64,
+      "maxY": 64
+    },
+    {
+      "minX": 64,
+      "minY": 0,
+      "maxX": 128,
+      "maxY": 64
+    },
+    {
+      "minX": 128,
+      "minY": 0,
+      "maxX": 192,
+      "maxY": 64
+    },
+    {
+      "minX": 192,
+      "minY": 0,
+      "maxX": 256,
+      "maxY": 64
+    },
+    {
+      "minX": 256,
+      "minY": 0,
+      "maxX": 320,
+      "maxY": 64
+    },
+    {
+      "minX": 320,
+      "minY": 0,
+      "maxX": 384,
+      "maxY": 64
+    }
+  ]
+}
