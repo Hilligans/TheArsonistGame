@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <lwjgl.version>3.4.0-SNAPSHOT</lwjgl.version>
-        <lwjgl.natives>natives-linux</lwjgl.natives>
+        <lwjgl.natives>natives-windows</lwjgl.natives>
 
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>

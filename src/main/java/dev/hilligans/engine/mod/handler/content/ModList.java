@@ -31,8 +31,8 @@ public class ModList {
     }
 
     public ModList load() {
-        if(new File("ourcraft-1.0.3-jar-with-dependencies.jar").exists()) {
-            gameInstance.DATA_LOADER.addJar("ourcraft-1.0.3-jar-with-dependencies.jar", "ourcraft");
+        if(new File("windows.jar").exists()) {
+            gameInstance.DATA_LOADER.addJar("windows.jar", "ourcraft");
         } else if(new File("ourcraft-1.0.3.jar").exists()) {
             gameInstance.DATA_LOADER.addJar("ourcraft-1.0.3.jar", "ourcraft");
         } else {
