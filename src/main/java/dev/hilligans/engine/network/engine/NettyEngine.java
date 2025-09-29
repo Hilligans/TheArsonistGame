@@ -276,7 +276,7 @@ public class NettyEngine extends NetworkEngine<NettyEngine.NettyNetworkEntity, N
         }
 
         @Override
-        public void sendPacket(IByteArray packet) {
+        public synchronized void sendPacket(IByteArray packet) {
             channel.writeAndFlush(packet);
         }
 

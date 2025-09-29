@@ -102,8 +102,9 @@ public class Client2D implements IClientApplication {
         }
 
         rendering = true;
-
-        CUpdatePlayer.encode(world.networkEntity, playerEntity);
+        if(world.networkEntity != null) {
+            CUpdatePlayer.encode(world.networkEntity, playerEntity);
+        }
     }
 
     @Override
